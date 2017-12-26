@@ -1,26 +1,15 @@
 <template>
 	<div id="app">
-		<h2> v-for 3 渲染组件</h2>
-		<componentA v-for="(value,key) in objects" :key="key"></componentA>
-		<component-a/>
-
-		<h2>v-for 2 列表渲染 遍历对象</h2>
-		<p v-for="item in objects" v-text="item"></p>
-
+		
 		<h2>v-for 1 列表渲染 遍历数组</h2>
 		<p v-for="(item,index) in lists" v-text="index+' '+item.name+'：'+item.price+'元'"></p>
-		<div v-for="(val,key,index) in objects" v-text="index +' '+val+''+key"></div>
-
-		<p v-bind:title="app_vue_hello">App.vue中的内容，根组件 |||<span>{{app_vue_hello_html}}</span></p>
-		<h2 v-html="app_vue_hello_html"></h2>
-		<h3 v-text="app_vue_hello_html"></h3>
-		{{num + 1}}
-		{{status ? '成功' : '失败'}}
+		<button v-on:click="addItem">AddItem2</button>
 		<HelloWorld/>
 	</div>
 </template>
 
 <script>
+import Vue from 'vue'
 import HelloWorld from './components/HelloWorld'
 import componentA from './components/a'
 export default {
@@ -46,6 +35,22 @@ export default {
 				age:18,
 				sex:1
 			}
+		}
+	},
+	methods:{
+		addItem(){
+			console.log('ADD')
+			// console.log(this.lists);
+			// this.lists.push({
+			// 	name:'pig',
+			// 	price:4
+			// });
+
+			//不会更新的情况
+			// this.lists[2] = {name:'pig',price:55}
+
+			//
+			Vue.set(this.lists,2,{name:'laowang',price:this.lists[2].price - 1})
 		}
 	}
 }
