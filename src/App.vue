@@ -1,7 +1,15 @@
 <template>
 	<div id="app">
-		<h2>列表渲染</h2>
-		<p v-for="(item,index) in lists" v-text="item.index+' '+item.name+'：'+item.price+'元'"></p>
+		<h2> v-for 3 渲染组件</h2>
+		<componentA v-for="(value,key) in objects" :key="key"></componentA>
+		<component-a/>
+
+		<h2>v-for 2 列表渲染 遍历对象</h2>
+		<p v-for="item in objects" v-text="item"></p>
+
+		<h2>v-for 1 列表渲染 遍历数组</h2>
+		<p v-for="(item,index) in lists" v-text="index+' '+item.name+'：'+item.price+'元'"></p>
+		<div v-for="(val,key,index) in objects" v-text="index +' '+val+''+key"></div>
 
 		<p v-bind:title="app_vue_hello">App.vue中的内容，根组件 |||<span>{{app_vue_hello_html}}</span></p>
 		<h2 v-html="app_vue_hello_html"></h2>
@@ -14,11 +22,12 @@
 
 <script>
 import HelloWorld from './components/HelloWorld'
-
+import componentA from './components/a'
 export default {
 	name: 'app',
 	components: {
-		HelloWorld
+		HelloWorld,
+		componentA
 	},
 	data () {
 		return {
@@ -31,7 +40,12 @@ export default {
 				{name:'banana',price:56},
 				{name:'orange',price:345},
 				{name:'pee',price:304}
-			]
+			],
+			objects:{
+				name:'jack',
+				age:18,
+				sex:1
+			}
 		}
 	}
 }
