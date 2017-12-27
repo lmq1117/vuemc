@@ -1,9 +1,22 @@
 <template>
 	<div id="app">
-		
-		<h2>v-for 1 列表渲染 遍历数组</h2>
-		<p v-for="(item,index) in lists" v-text="index+' '+item.name+'：'+item.price+'元'"></p>
-		<button v-on:click="addItem">AddItem2</button>
+		<h2>v-bind:attrname="attrvalue"绑定属性 </h2>
+		<h3>可简写为 :attrname="attrvalue"</h3>
+
+		<ul class="test">
+			<!--  -->
+			<li v-bind:class="redk" class="b">红色加粗900文字a 没用缩写</li>
+			<li :class="redk" class="b">红色加粗900文字a 缩写了</li>
+			<li :class="greenk">字符串绑定</li>
+			<li :class="zuheak">对象绑定</li>
+			<li :class="arrName">数组绑定</li>
+			<li :class="[greenk,dk]">属性处直接写数组1</li>
+			<li :class="['green','d']">属性处直接写数组2</li>
+			<li :style="linkCss">内联样式</li>
+			<li >内联样式</li>
+			<li >内联样式</li>
+		</ul>
+
 		<HelloWorld/>
 	</div>
 </template>
@@ -24,6 +37,14 @@ export default {
 			app_vue_hello_html:" <p>app_vue_hello_html_content</p>",
 			num:1,
 			status:true,
+			redk:'red',
+			yellowk:'yellow',
+			greenk:'green',
+			bk:'b',
+			ik:'i',
+			ok:'o',
+			dk:'d',
+			uk:'u',
 			lists: [
 				{name:'apple',price:34},
 				{name:'banana',price:56},
@@ -34,7 +55,17 @@ export default {
 				name:'jack',
 				age:18,
 				sex:1
-			}
+			},
+			zuheak:{
+				'b':true,
+				'red':true,
+				'd':true
+			},
+			linkCss:{
+				'color':'red',
+				'font-size':'50px'
+			},
+			arrName:['b','red',{'d':true,'i':true}]
 		}
 	},
 	methods:{
@@ -64,5 +95,35 @@ export default {
 	text-align: center;
 	color: #2c3e50;
 	margin-top: 60px;
+
+}
+.test{
+	list-style: none;
+	line-height: 30px;
+	font-size: 18px;
+}
+.red {
+	color:red;
+}
+.green {
+	color:green;
+}
+.yellow{
+	color: yellow;
+}
+.b{
+	font-weight: 900;
+}
+.i {
+	font-style:italic;
+}
+.o {
+	font-style: oblique;
+}
+.d{
+	text-decoration-line: line-through;
+}
+.u{
+	text-decoration-line: underline;
 }
 </style>
