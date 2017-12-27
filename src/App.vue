@@ -1,22 +1,17 @@
 <template>
 	<div id="app">
-		<h2>v-bind:attrname="attrvalue"绑定属性 </h2>
-		<h3>可简写为 :attrname="attrvalue"</h3>
+		<h2>v-if v-show  用法</h2>
+		<h3>
+			v-if 直接去掉代码
+			v-show 是display：none
+		</h3>
 
 		<ul class="test">
-			<!--  -->
-			<li v-bind:class="redk" class="b">红色加粗900文字a 没用缩写</li>
-			<li :class="redk" class="b">红色加粗900文字a 缩写了</li>
-			<li :class="greenk">字符串绑定</li>
-			<li :class="zuheak">对象绑定</li>
-			<li :class="arrName">数组绑定</li>
-			<li :class="[greenk,dk]">属性处直接写数组1</li>
-			<li :class="['green','d']">属性处直接写数组2</li>
-			<li :style="linkCss">内联样式</li>
-			<li >内联样式</li>
-			<li >内联样式</li>
+			<li v-if="isPartA">内联样式1 PartA</li>
+			<li v-else>no data</li>
+			<li v-show="!isPartA">内联样式PartB</li>
 		</ul>
-
+		<button v-on:click="toggle">toggle</button>
 		<HelloWorld/>
 	</div>
 </template>
@@ -37,6 +32,7 @@ export default {
 			app_vue_hello_html:" <p>app_vue_hello_html_content</p>",
 			num:1,
 			status:true,
+			isPartA:true,
 			redk:'red',
 			yellowk:'yellow',
 			greenk:'green',
@@ -71,17 +67,10 @@ export default {
 	methods:{
 		addItem(){
 			console.log('ADD')
-			// console.log(this.lists);
-			// this.lists.push({
-			// 	name:'pig',
-			// 	price:4
-			// });
-
-			//不会更新的情况
-			// this.lists[2] = {name:'pig',price:55}
-
-			//
 			Vue.set(this.lists,2,{name:'laowang',price:this.lists[2].price - 1})
+		},
+		toggle(){
+			this.isPartA = !this.isPartA;
 		}
 	}
 }
