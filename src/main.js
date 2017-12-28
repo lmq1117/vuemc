@@ -5,6 +5,8 @@ import App from './App'
 import VueRouter from 'vue-router'
 import appleZ from './components/apple'
 import banaerZ from './components/banaer'
+import RedApple from './components/redapple'
+
 
 Vue.use(VueRouter)
 
@@ -13,10 +15,16 @@ let router = new VueRouter({
 	routes:[
 		{
 			path:'/a',
-			component:appleZ
+			component:appleZ,
+			children:[
+				{
+					path:'red',
+					component:RedApple
+				}
+			]
 		},
 		{
-			path:'/b/:color/detail/:num',
+			path:'/b',
 			component:banaerZ
 		}
 	]

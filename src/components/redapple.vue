@@ -1,7 +1,6 @@
 <template>
   <div>
     <h3>{{ hello }}</h3>
-  <router-view></router-view>
   </div>
 </template>
 
@@ -9,7 +8,7 @@
 export default {
   data () {
     return {
-      hello: 'apple组件内容 '
+      hello: ' red apple组件内容 '
     }
   }
 }

@@ -4,6 +4,7 @@
 		<hr>
 		<router-link :to="{path:'a'}">Apple</router-link>
 		<router-link :to="{path:'b'}">Banana</router-link>
+		<router-link :to="{path:'a/red'}">子组件</router-link>
 		<hr>
 		<router-view></router-view>
 
