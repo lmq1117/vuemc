@@ -16,7 +16,7 @@ let router = new VueRouter({
 			component:appleZ
 		},
 		{
-			path:'/b',
+			path:'/b/:color/detail/:num',
 			component:banaerZ
 		}
 	]

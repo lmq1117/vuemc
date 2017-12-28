@@ -1,6 +1,11 @@
 <template>
   <div>
     <h3>{{ hello }}</h3>
+    <hr>
+    {{ $route.params.color }}
+    {{ $route.params.num }}
+    <hr>
+    <button @click="getParam">点击获取参数</button>
   </div>
 </template>
 
@@ -9,6 +14,11 @@ export default {
   data () {
     return {
       hello: 'bananer组件内容 '
+    }
+  },
+  methods:{
+    getParam (){
+      console.log(this.$route.params);
     }
   }
 }
