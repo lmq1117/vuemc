@@ -1,30 +1,26 @@
 <template>
 	<div id="app">
-		<h2>v-if v-show  用法</h2>
-		<h3>
-			v-if 直接去掉代码
-			v-show 是display：none
-		</h3>
+		<h1>App.vue组件里的内容 | 相当于页面头部</h1>
+		<hr>
+		<router-link :to="{path:'a'}">Apple</router-link>
+		<router-link :to="{path:'b'}">Banana</router-link>
+		<hr>
+		<router-view></router-view>
 
-		<ul class="test">
-			<li v-if="isPartA">内联样式1 PartA</li>
-			<li v-else>no data</li>
-			<li v-show="!isPartA">内联样式PartB</li>
-		</ul>
-		<button v-on:click="toggle">toggle</button>
-		<HelloWorld/>
 	</div>
 </template>
 
 <script>
 import Vue from 'vue'
 import HelloWorld from './components/HelloWorld'
-import componentA from './components/a'
+import appleZ from './components/apple'
+import banaerZ from './components/banaer'
 export default {
 	name: 'app',
 	components: {
 		HelloWorld,
-		componentA
+		appleZ,
+		banaerZ
 	},
 	data () {
 		return {
