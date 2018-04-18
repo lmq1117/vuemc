@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>处理用户输入-反转</title>
+	<!-- 开发环境版本，包含了用帮助的命令行警告  -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app-5">
+		<p>{{ message }}</p>
+		<button v-on:click="reverseMessage">点击逆转消息</button>
+	</div>
+</body>
+</html>
+<script>
+	var app = new Vue({
+		el: '#app-5',
+		data: {
+			// message: 'Hello lmqs Vue.js!'
+			message: "上海自来水来自海上..."
+		},
+		methods: {
+			reverseMessage : function (){
+				this.message = this.message.split('').reverse().join('');
+			}
+		}
+	});
+</script>
