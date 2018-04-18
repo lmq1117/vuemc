@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环</title>
+	<!-- 开发环境版本，包含了用帮助的命令行警告  -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app-4">
+		<ul>
+			<li v-for="item in lists">{{ item.name }}</li>
+		</ul>
+	</div>
+</body>
+</html>
+<script>
+	var app = new Vue({
+		el: '#app-4',
+		data: {
+			lists: [
+				{name: '风清扬',age: 18},
+				{name: '岳不群',age: 18},
+				{name: '灭绝师太',age: 18},
+			]
+		}
+	});
+</script>
